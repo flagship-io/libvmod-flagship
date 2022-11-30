@@ -47,9 +47,8 @@ Example
                 import flagship;
 
                 sub vcl_init {
-                        flagship.init("FS_ENV_ID", "FS_API_KEY", pollingInterval=200, logLevel="debug", trackingEnabled=0);
+                        flagship.init("FS_ENV_ID", "FS_API_KEY", 200, "debug", 0);
                 }
-
 compute_flags
 -----
 
@@ -57,8 +56,8 @@ Prototype
         ::
 
                 compute_flags(
-                        STRING visitorID,   // [your visitor id]
-                        STRING context,  // [your context]
+                        STRING visitorID,       // [your visitor id]
+                        STRING context,         // [your context]
                 )
 Return value
 	STRING
@@ -67,9 +66,8 @@ Description
 Example
         ::
                 sub vcl_hash {
-                        set req.http.X-FS-FLAGVALUES = flagship.compute_flags("visitor_iD", "visitor_context");
+                        set req.http.X-FS-FLAGVALUES = flagship.compute_flags("visitor_id", "visitor_context");
                 }
-
 get_flag_bool
 -----
 
@@ -92,7 +90,6 @@ Example
                 sub vcl_hash {
                         set req.http.X-FS-FLAGBOOL = flagship.get_flag_bool("visitor_id", "visitor_context", "flag_key", 0, 0);
                 }
-
 get_flag_string
 -----
 
@@ -115,7 +112,6 @@ Example
                 sub vcl_hash {
                         set req.http.X-FS-FLAGSTRING = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", "default_value", 0);
                 }
-
 get_flag_number
 -----
 
@@ -138,7 +134,6 @@ Example
                 sub vcl_hash {
                         set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
                 }
-
 INSTALLATION
 ============
 
