@@ -42,6 +42,7 @@ Return value
 	VOID
 Description
 	Initialize flagship.
+
 Example
         ::
                 import flagship;
@@ -63,6 +64,7 @@ Return value
 	STRING
 Description
 	Return flags that corresponds to the visitor id and context (flags are separated by ";").
+
 Example
         ::
                 sub vcl_hash {
@@ -85,6 +87,7 @@ Return value
 	INT
 Description
 	Return flag that corresponds to the visitor id and context.
+
 Example
         ::
                 sub vcl_hash {
@@ -107,6 +110,7 @@ Return value
 	STRING
 Description
 	Return flag that corresponds to the visitor id and context.
+
 Example
         ::
                 sub vcl_hash {
@@ -129,6 +133,7 @@ Return value
 	STRING
 Description
 	Return flag that corresponds to the visitor id and context.
+
 Example
         ::
                 sub vcl_hash {
