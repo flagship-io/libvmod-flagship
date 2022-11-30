@@ -138,16 +138,15 @@ Description
 	Return flag that corresponds to the visitor id and context.
 
 Example
-
-::
- sub vcl_hash {
-  set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
- }
+        ::
+                sub vcl_hash {
+                        set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
+                }
 
 INSTALLATION
 ============
 
-Before installating make sure to copy the file libflaship.so to /usr/lib/ and the file libflagship.h to /usr/include/
+Before installating make sure to copy the file ``libflaship.so`` to ``/usr/lib/`` and the file ``libflagship.h`` to ``/usr/include/``
 
 The source tree is based on autotools to configure the building, and
 does also have the necessary bits in place to do functional unit tests
