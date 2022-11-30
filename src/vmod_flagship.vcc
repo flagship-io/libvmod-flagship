@@ -1,0 +1,28 @@
+#
+# Copyright YOU (c) 1900.
+#
+# (vmodtool requires this format.)
+#
+
+$Module flagship 3 Flagship VMOD
+
+DESCRIPTION
+===========
+
+This is the embedded documentation for the flagship VMOD. It should
+mention what the vmod is intended to do.
+
+It can span multiple lines and is written in RST format.
+You can even have links and lists in here:
+
+* https://github.com/varnish/libvmod-flagship/
+* https://www.varnish-cache.org/
+
+$Function STRING compute_flags(STRING visitorId, STRING context)
+$Function VOID init(STRING envID, STRING apiKey, INT pollingInterval, STRING logLevel, INT trackingEnabled)
+$Function INT get_flag_bool(STRING visitorId, STRING context, STRING key, INT defaultValue, INT activate)
+$Function STRING get_flag_string(STRING visitorId, STRING context, STRING key, STRING defaultValue, INT activate)
+$Function REAL get_flag_number(STRING visitorId, STRING context, STRING key, REAL defaultValue, INT activate)
+
+The different functions provided by the VMOD should also have their own
+embedded documentation. This section is for the hello() function.

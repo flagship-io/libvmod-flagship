@@ -1,0 +1,36 @@
+varnishtest "Test flagship vmod"
+
+server s1 {
+       rxreq
+       txresp
+} -start
+
+varnish v1 -vcl+backend {
+	import std;
+	import ${vmod_flagship};
+
+	sub vcl_init {
+		std.log(flagship.info());
+	}
+
+	sub vcl_deliver {
+		set resp.http.hello = flagship.hello("World");
+		set resp.http.info = flagship.info();
+	}
+} -start
+
+logexpect l1 -v v1 -g raw -d 1 {
+	expect 0 0    CLI     {^Rd vcl.load}
+	expect 0 =    VCL_Log {^vmod_flagship loaded at }
+} -start
+
+client c1 {
+	txreq -url "/"
+	rxresp
+	expect resp.http.hello == "Hello, World"
+	expect resp.http.info  ~  "^vmod_flagship warmed at "
+}
+
+client c1 -run
+
+logexpect l1 -wait
