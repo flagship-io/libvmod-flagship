@@ -1,12 +1,9 @@
 This is a running log of changes to libvmod-flagship.
 
-libvmod-flagship 0.2 (unreleased)
+libvmod-flagship 0.1 (2022-11-30)
 --------------------------------
 
 * The most recent release entry is at the top.
-
-libvmod-flagship 0.1 (1970-01-01)
---------------------------------
 
 * Add list items with changes done.
 * Issues fixed could also be list entries.
