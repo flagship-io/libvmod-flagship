@@ -137,10 +137,12 @@ Return value
 Description
 	Return flag that corresponds to the visitor id and context.
 
-Example::
-        sub vcl_hash {
-                set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
-        }
+Example
+
+::
+ sub vcl_hash {
+  set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
+ }
 
 INSTALLATION
 ============
