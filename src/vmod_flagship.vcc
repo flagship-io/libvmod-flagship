@@ -1,5 +1,5 @@
 #
-# Copyright YOU (c) 1900.
+# Copyright Guillaume Jacquart (c) 2022.
 #
 # (vmodtool requires this format.)
 #
@@ -15,7 +15,7 @@ mention what the vmod is intended to do.
 It can span multiple lines and is written in RST format.
 You can even have links and lists in here:
 
-* https://github.com/varnish/libvmod-flagship/
+* https://github.com/flagship-io/libvmod-flagship/
 * https://www.varnish-cache.org/
 
 $Function STRING compute_flags(STRING visitorId, STRING context)

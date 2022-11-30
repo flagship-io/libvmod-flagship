@@ -2,11 +2,15 @@
 vmod-flagship
 ============
 
-notice
-------
+-------------------------------
+Flagship module for Varnish 
+-------------------------------
 
-For new developments, we recommend to consider using
-https://github.com/Dridi/vcdk
+:Author: Guillaume Jacquart(@guillaumejacquart)
+:Date: 2022/11/30
+:Version: 1.0
+:Support Varnish Version: 5.0.x ~ 7.0.x
+:Manual section: 3
 
 SYNOPSIS
 ========
@@ -16,28 +20,124 @@ import flagship;
 DESCRIPTION
 ===========
 
-Flagship Varnish vmod demonstrating how to write an out-of-tree Varnish vmod.
-
-Implements the traditional Hello World as a vmod.
+Flagship vmod provide feature flagging & experimentation abilities at the web server level and cache server.
 
 FUNCTIONS
 =========
 
-hello
+init
 -----
 
 Prototype
         ::
 
-                hello(STRING S)
+                init(
+                        STRING envID,           // [your env id]
+                        STRING apiKey,          // [your api key]
+                        INT pollingInterval,    // [polling interval]
+                        STRING logLevel,        // [log level]
+                        INT trackingEnabled,    // [tracking enabled]
+                )
+Return value
+	VOID
+Description
+	Initialize flagship.
+Example
+        ::
+                import flagship;
+
+                sub vcl_init {
+                        flagship.init("FS_ENV_ID", "FS_API_KEY", pollingInterval=200, logLevel="debug", trackingEnabled=0);
+                }
+
+compute_flags
+-----
+
+Prototype
+        ::
+
+                compute_flags(
+                        STRING visitorID,   // [your visitor id]
+                        STRING context,  // [your context]
+                )
 Return value
 	STRING
 Description
-	Returns "Hello, " prepended to S
-Flagship
+	Return flags that corresponds to the visitor id and context (flags are separated by ";").
+Example
+        ::
+                sub vcl_hash {
+                        set req.http.X-FS-FLAGVALUES = flagship.compute_flags("visitor_iD", "visitor_context");
+                }
+
+get_flag_bool
+-----
+
+Prototype
         ::
 
-                set resp.http.hello = flagship.hello("World");
+                get_flag_bool(
+                        STRING visitorID,       // [your visitor id]
+                        STRING context,         // [your context]
+                        STRING key,             // [your flag key]
+                        INT defaultValue,       // [default value]
+                        INT activate,           // [activate]
+                )
+Return value
+	INT
+Description
+	Return flag that corresponds to the visitor id and context.
+Example
+        ::
+                sub vcl_hash {
+                        set req.http.X-FS-FLAGBOOL = flagship.get_flag_bool("visitor_id", "visitor_context", "flag_key", 0, 0);
+                }
+
+get_flag_string
+-----
+
+Prototype
+        ::
+
+                get_flag_string(
+                        STRING visitorID,       // [your visitor id]
+                        STRING context,         // [your context]
+                        STRING key,             // [your flag key]
+                        STRING defaultValue,    // [default value]
+                        INT activate,           // [activate]
+                )
+Return value
+	STRING
+Description
+	Return flag that corresponds to the visitor id and context.
+Example
+        ::
+                sub vcl_hash {
+                        set req.http.X-FS-FLAGSTRING = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", "default_value", 0);
+                }
+
+get_flag_number
+-----
+
+Prototype
+        ::
+
+                get_flag_number(
+                        STRING visitorID,       // [your visitor id]
+                        STRING context,         // [your context]
+                        STRING key,             // [your flag key]
+                        INT defaultValue,       // [default value]
+                        INT activate,           // [activate]
+                )
+Return value
+	STRING
+Description
+	Return flag that corresponds to the visitor id and context.
+Example
+        ::
+                sub vcl_hash {
+                        set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
+                }
 
 INSTALLATION
 ============
@@ -81,6 +181,7 @@ pkg-config. You can build the module simply by running::
  ./configure
  make
 
+
 Installation directories
 ------------------------
 
@@ -88,17 +189,6 @@ By default, the vmod ``configure`` script installs the built vmod in the
 directory relevant to the prefix. The vmod installation directory can be
 overridden by passing the ``vmoddir`` variable to ``make install``.
 
-USAGE
-=====
-
-In your VCL you could then use this vmod along the following lines::
-
-        import flagship;
-
-        sub vcl_deliver {
-                # This sets resp.http.hello to "Hello, World"
-                set resp.http.hello = flagship.hello("World");
-        }
 
 COMMON PROBLEMS
 ===============
@@ -114,14 +204,19 @@ COMMON PROBLEMS
   For instance, to build against Varnish Cache 4.1, this vmod must be built from
   branch 4.1.
 
-START YOUR OWN VMOD
+COPYRIGHT
 ===================
 
-The basic steps to start a new vmod from this flagship are::
+COPYRIGHT
+=============
 
-  name=myvmod
-  git clone libvmod-flagship libvmod-$name
-  cd libvmod-$name
-  ./rename-vmod-script $name
+This document is licensed under the same license as the
+libvmod-flagship project. See LICENSE for details.
 
-and follow the instructions output by rename-vmod-script
+* Copyright (c) 2020-2022 Guillaume Jacquart(@guillaumejacquart)
+
+File layout and configuration based on libvmod-example
+
+* Copyright (c) 2011 Varnish Software AS
+* https://github.com/varnishcache/libvmod-example/
+* https://github.com/varnishcache/libvmod-example/blob/master/LICENSE
