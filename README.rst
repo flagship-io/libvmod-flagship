@@ -137,14 +137,15 @@ Return value
 Description
 	Return flag that corresponds to the visitor id and context.
 
-Example
-        ::
-                sub vcl_hash {
-                        set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
-                }
+Example::
+        sub vcl_hash {
+                set req.http.X-FS-FLAGNUMBER = flagship.get_flag_string("visitor_id", "visitor_context", "flag_key", 12.0, 0);
+        }
 
 INSTALLATION
 ============
+
+Before installating make sure to copy the file libflaship.so to /usr/lib/ and the file libflagship.h to /usr/include/
 
 The source tree is based on autotools to configure the building, and
 does also have the necessary bits in place to do functional unit tests
@@ -207,9 +208,6 @@ COMMON PROBLEMS
   Make sure you build this vmod against its correspondent Varnish Cache version.
   For instance, to build against Varnish Cache 4.1, this vmod must be built from
   branch 4.1.
-
-COPYRIGHT
-===================
 
 COPYRIGHT
 =============
