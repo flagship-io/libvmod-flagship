@@ -23,6 +23,3 @@ $Function VOID init(STRING envID, STRING apiKey, INT pollingInterval, STRING log
 $Function INT get_flag_bool(STRING visitorId, STRING context, STRING key, INT defaultValue, INT activate)
 $Function STRING get_flag_string(STRING visitorId, STRING context, STRING key, STRING defaultValue, INT activate)
 $Function REAL get_flag_number(STRING visitorId, STRING context, STRING key, REAL defaultValue, INT activate)
-
-The different functions provided by the VMOD should also have their own
-embedded documentation. This section is for the hello() function.
