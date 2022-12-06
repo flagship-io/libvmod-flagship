@@ -8,9 +8,8 @@ Flagship module for Varnish
 
 :Author: Guillaume Jacquart(@guillaumejacquart)
 :Date: 2022/11/30
-:Version: 1.0
+:Version: 0.1
 :Support Varnish Version: 5.0.x ~ 7.0.x
-:Manual section: 3
 
 SYNOPSIS
 ========
