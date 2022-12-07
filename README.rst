@@ -9,7 +9,7 @@ Flagship module for Varnish
 :Author: Guillaume Jacquart(@guillaumejacquart)
 :Date: 2022/11/30
 :Version: 0.1
-:Support Varnish Version: 5.0.x ~ 7.0.x
+:Support Varnish Version: 6.x ~ 7.x
 
 SYNOPSIS
 ========
@@ -35,7 +35,7 @@ Prototype
                         STRING apiKey,          // [your api key]
                         INT pollingInterval,    // [polling interval]
                         STRING logLevel,        // [log level]
-                        INT trackingEnabled,    // [tracking enabled]
+                        INT trackingEnabled     // [tracking enabled]
                 )
 Return value
 	VOID
@@ -57,7 +57,7 @@ Prototype
 
                 compute_flags(
                         STRING visitorID,       // [your visitor id]
-                        STRING context,         // [your context]
+                        STRING context         // [your context]
                 )
 Return value
 	STRING
@@ -81,7 +81,7 @@ Prototype
                         STRING context,         // [your context]
                         STRING key,             // [your flag key]
                         INT defaultValue,       // [default value]
-                        INT activate,           // [activate]
+                        INT activate            // [activate]
                 )
 Return value
 	INT
@@ -105,7 +105,7 @@ Prototype
                         STRING context,         // [your context]
                         STRING key,             // [your flag key]
                         STRING defaultValue,    // [default value]
-                        INT activate,           // [activate]
+                        INT activate            // [activate]
                 )
 Return value
 	STRING
@@ -129,7 +129,7 @@ Prototype
                         STRING context,         // [your context]
                         STRING key,             // [your flag key]
                         INT defaultValue,       // [default value]
-                        INT activate,           // [activate]
+                        INT activate            // [activate]
                 )
 Return value
 	STRING
