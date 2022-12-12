@@ -21,6 +21,12 @@ DESCRIPTION
 
 Flagship vmod provide feature flagging & experimentation abilities at the web server level and cache server.
 
+SHARED OBJECT
+=============
+
+The shared object libflagship.so is generated from Flagship Go SDK using Go wrapper for C.
+Repository `Link <https://github.com/flagship-io/flagship-c-go-wrapper>`_
+
 FUNCTIONS
 =========
 
@@ -43,9 +49,7 @@ Description
 	Initialize flagship.
 
 Example
-        ::
-                import flagship;
-
+      ::
                 sub vcl_init {
                         flagship.init("FS_ENV_ID", "FS_API_KEY", 200, "debug", 0);
                 }
@@ -145,7 +149,7 @@ Example
 INSTALLATION
 ============
 
-Before installating make sure to copy the file ``libflaship.so`` to ``/usr/lib/`` and the file ``libflagship.h`` to ``/usr/include/``
+Before installating make sure to copy the file ``libflagship.so`` to ``/usr/lib/`` and the file ``libflagship.h`` to ``/usr/include/``
 
 The source tree is based on autotools to configure the building, and
 does also have the necessary bits in place to do functional unit tests
