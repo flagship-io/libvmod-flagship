@@ -221,7 +221,12 @@ COPYRIGHT
 This document is licensed under the same license as the
 libvmod-flagship project. See LICENSE for details.
 
-* Copyright (c) 2020-2022 Guillaume Jacquart(@guillaumejacquart)
+* Copyright (c) 2020-2022 AB Tasty
+
+Shared objects and libraries based on the Flagship Go SDK
+
+* Copyright (c) 2022 AB Tasty AS
+* https://github.com/flagship-io/flagship-c-go-wrapper
 
 File layout and configuration based on libvmod-example
 
