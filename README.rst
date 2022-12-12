@@ -50,6 +50,8 @@ Description
 
 Example
       ::
+                import flagship;
+                
                 sub vcl_init {
                         flagship.init("FS_ENV_ID", "FS_API_KEY", 200, "debug", 0);
                 }
