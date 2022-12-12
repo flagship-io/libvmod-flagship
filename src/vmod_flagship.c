@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <libflagship.h>
+#include <libflagship_linux_amd64.h>
 
 #include "cache/cache.h"
 

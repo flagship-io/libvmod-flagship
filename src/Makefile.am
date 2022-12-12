@@ -3,7 +3,7 @@ AM_LDFLAGS = $(VARNISHAPI_LIBS) $(VMOD_LDFLAGS)
 
 vmod_LTLIBRARIES = libvmod_flagship.la
 
-libvmod_flagship_la_LDFLAGS = -module -export-dynamic -avoid-version -shared -lflagship
+libvmod_flagship_la_LDFLAGS = -module -export-dynamic -avoid-version -shared -lflagship_linux_amd64
 
 libvmod_flagship_la_SOURCES = \
 	vmod_flagship.c

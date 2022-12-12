@@ -9,7 +9,7 @@ Flagship module for Varnish
 :Author: Guillaume Jacquart(@guillaumejacquart)
 :Date: 2022/11/30
 :Version: 0.1
-:Support Varnish Version: 6.x ~ 7.x
+:Support Varnish Version: 6.6 ~ 7.x
 
 SYNOPSIS
 ========
@@ -24,7 +24,7 @@ Flagship vmod provide feature flagging & experimentation abilities at the web se
 SHARED OBJECT
 =============
 
-The shared object libflagship.so is generated from Flagship Go SDK using Go wrapper for C.
+The shared object libflagship_linux_amd64.so is generated from Flagship Go SDK using Go wrapper for C.
 Repository `Link <https://github.com/flagship-io/flagship-c-go-wrapper>`_
 
 FUNCTIONS
@@ -149,7 +149,7 @@ Example
 INSTALLATION
 ============
 
-Before installating make sure to copy the file ``libflagship.so`` to ``/usr/lib/`` and the file ``libflagship.h`` to ``/usr/include/``
+Before installating make sure to copy the file ``libflagship_linux_amd64.so`` to ``/usr/lib/`` and the file ``libflagship_linux_amd64.h`` to ``/usr/include/``
 
 The source tree is based on autotools to configure the building, and
 does also have the necessary bits in place to do functional unit tests
