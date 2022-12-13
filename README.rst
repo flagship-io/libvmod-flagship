@@ -227,7 +227,7 @@ Shared objects and libraries based on the Flagship Go wrapper for C
 
 * Copyright (c) 2022 AB Tasty AS
 * https://github.com/flagship-io/flagship-c-go-wrapper
-
+* https://github.com/flagship-io/flagship-c-go-wrapper/blob/main/LICENSE
 File layout and configuration based on libvmod-example
 
 * Copyright (c) 2011 Varnish Software AS
